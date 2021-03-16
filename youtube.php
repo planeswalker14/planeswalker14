@@ -11,6 +11,10 @@ Static list Mirror https://raw.githubusercontent.com/mkaand/youtube-ads-blocker-
 Dynamic list https://api.hackertarget.com/hostsearch/?q=googlevideo.com
 */
 
+sleep 5
+stopservice unbound -f
+unbound -c /etc/unbound/unbound.conf
+
 $content = file_get_contents("https://raw.githubusercontent.com/anudeepND/youtubeadsblacklist/master/domainlist.txt");
 $my_static_array = explode("\n",$content);
 echo '#Static List Source: https://raw.githubusercontent.com/anudeepND/youtubeadsblacklist/master/domainlist.txt
